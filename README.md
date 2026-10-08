@@ -19,8 +19,19 @@ The dataset used in this project is publicly available on Kaggle:
 2. **Feature Engineering & Training (`model_train.py`):** Drops irrelevant columns, performs One-Hot Encoding on categorical features, handles missing values, and trains a Logistic Regression model.
 3. **Pipeline Orchestration (`main.py`):** Connects data loading and model training into a single automated workflow.
 
-## 📊 Results
-The baseline Logistic Regression model achieved an accuracy of **90.06%** on the test set.
+## 📊 Results & Business Trade-off
+
+The dataset has a severe class imbalance (~22% churn rate). A baseline model (DummyClassifier) was established, and `class_weight='balanced'` was applied to prioritize minority class detection.
+
+| Model | Test Accuracy | ROC-AUC | PR-AUC (Primary Metric) | Churn Recall | Churn Precision |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Baseline (Most Frequent) | 78.00% | 0.50 | ~0.22 | 0.00 | 0.00 |
+| **Logistic Regression (Balanced)** | **0.71** | **0.7694** | **0.3257** | **0.68** | **0.21** |
+
+*Note: A 5-fold Stratified Cross-Validation was performed to ensure model stability. The `classification_report` demonstrates the inherent trade-off: prioritizing high recall (68%) for the minority 'Churn' class significantly improves business value, even though overall accuracy drops.*
+
+*Tools used: Python, Pandas, Scikit-learn, Git.*
+
 
 ## 🚀 How to Run
 1. Clone the repository.
