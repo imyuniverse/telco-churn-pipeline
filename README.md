@@ -26,7 +26,7 @@ The dataset has a severe class imbalance (~22% churn rate). A baseline model (Du
 | Model | Test Accuracy | ROC-AUC | PR-AUC (Primary Metric) | Churn Recall | Churn Precision |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Baseline (Most Frequent) | 78.00% | 0.50 | ~0.22 | 0.00 | 0.00 |
-| **Logistic Regression (Balanced)** | **0.71** | **0.7694** | **0.3257** | **0.68** | **0.21** |
+| **Logistic Regression (Balanced)** | **0.71** | **0.77** | **0.33** | **0.68** | **0.21** |
 
 *Note: A 5-fold Stratified Cross-Validation was performed to ensure model stability. The `classification_report` demonstrates the inherent trade-off: prioritizing high recall (68%) for the minority 'Churn' class significantly improves business value, even though overall accuracy drops.*
 
